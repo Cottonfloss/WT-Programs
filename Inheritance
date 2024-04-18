@@ -1,87 +1,31 @@
-
-//Allinone class
-import Input.Input;
-import Operation.Operation;
 import java.util.Scanner;
-public class Allinone extends Input implements Operation {
+
+        class Person {
+            int id;
+            String name;
+            public  void display_P(int id,String name)
+            {
+                this.id = id;
+                this.name = name;
+                System.out.println("The id of person is"+" "+id);
+                System.out.println("The name of person is"+" "+name);
+            }
+        }
+        class Student extends Person {
+            int course,fees;
+            public void display_S(int course,int fees){
+             this.course = course;
+             this.fees = fees;
+                System.out.println("The course of student is"+" "+course);
+             System.out.println("The fees of student is"+" "+fees);
+    }
+}
+public class Info{
     public static void main(String[] args) {
-        Allinone a1=new Allinone();
         Scanner sc=new Scanner(System.in);
-        System.out.println("enter n:");
-        a1.setA(sc.nextInt());
-        System.out.println("values of n is"+a1.getA());
-        a1.EvenOdd(a1.getA());
-        a1.Fact(a1.getA());
-        a1.Fibo(a1.getA());
-        a1.SumofN(a1.getA());
+        Student s=new Student();
+        s.display_P(10,"Bob");
+       s.display_S(101,3000);
+
     }
-
-    @Override
-    public void EvenOdd(int a) {
-        int c=a%2;
-        if(c==0)
-        {
-            System.out.println("Given number is even");
-        }
-        else {
-            System.out.println("Given number is odd");
-        }
-    }
-
-    @Override
-    public void Fibo(int a) {
-        int n1=0,n2=1;
-        System.out.println("Fibo series:"+" "+n1+" "+n2);
-        for(int i=2;i<a;i++){
-            int n3=n1+n2;
-            System.out.println("\n "+n3);
-            n1=n2;
-            n2=n3;
-        }
-    }
-
-    @Override
-    public void SumofN(int a) {
-        int c=0;
-        for(int i=1;i<=a;i++){
-            c=c+i;
-        }
-        System.out.println("The sum of "+a+" numbers is"+c);
-    }
-
-    @Override
-    public void Fact(int a) {
-        int c=1;
-        for(int i=1;i<=a;i++){
-            c=c*i;
-        }
-        System.out.println("The factorial of "+a+"is "+c);
-    }
-}
-
-// Input class
-package Input;
-
-public class Input {
-    int a;
-
-    public int getA() {
-        return a;
-    }
-
-    public void setA(int a) {
-        this.a = a;
-    }
-}
-
-//Operation Interface
-
-package Operation;
-
-public interface Operation {
-    public void EvenOdd(int a);
-    public void SumofN(int a);
-    public void Fibo(int a);
-    public void Fact(int a);
-
 }
